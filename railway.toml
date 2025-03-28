@@ -1,0 +1,11 @@
+# railway.toml
+
+[deploy]
+  # Define el volumen persistente para los datos de n8n
+  volumes = [
+    { mountPath = "/home/node/.n8n" }
+  ]
+
+  # Asegúrate de que el comando de inicio esté definido
+  # (Puede que ya esté implícito por tu Dockerfile, pero no hace daño añadirlo)
+  startCommand = "n8n start"
