@@ -1,9 +1,9 @@
-# fly.toml app configuration file generated for n8n-uzr6nw on 2025-03-30T15:10:23Z
+# fly.toml app configuration file generated for n8n-agent-supra on 2025-03-31T20:15:11Z
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = 'n8n-uzr6nw'
+app = 'n8n-agent-supra'
 primary_region = 'gru'
 
 [build]
