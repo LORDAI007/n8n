@@ -5,16 +5,16 @@ primary_region = "gru"
 image = "n8nio/n8n"
 
 [[services]]
-  protocol = "tcp"
-  internal_port = 5678
+protocol = "tcp"
+internal_port = 5678
 
-  [[services.ports]]
-    handlers = ["http"]
-    port = 80
+[[services.ports]]
+handlers = ["http"]
+port = 80
 
-  [[services.ports]]
-    handlers = ["tls", "http"]
-    port = 443
+[[services.ports]]
+handlers = ["tls", "http"]
+port = 443
 
 [deploy]
-  release_command = "n8n start"
+release_command = "n8n start"
