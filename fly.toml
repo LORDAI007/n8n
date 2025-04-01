@@ -2,19 +2,26 @@ app = "n8n-agent-supra"
 primary_region = "gru"
 
 [build]
-image = "n8nio/n8n"
+  image = "n8nio/n8n:latest"
 
-[[services]]
-protocol = "tcp"
-internal_port = 5678
+[env]
+  WEBHOOK_TUNNEL_URL = "https://n8n-agent-supra.fly.dev"
+  N8N_HOST = "n8n-agent-supra.fly.dev"
+  N8N_PORT = "5678"
+  N8N_PROTOCOL = "https"
+  N8N_EDITOR_BASE_URL = "https://n8n-agent-supra.fly.dev"
+  N8N_ENCRYPTION_KEY = "clave-segura-para-su-excelencia-2025"
 
-[[services.ports]]
-handlers = ["http"]
-port = 80
+[http_service]
+  internal_port = 5678
+  force_https = true
+  auto_stop_machines = false
+  auto_start_machines = true
+  min_machines_running = 1
 
-[[services.ports]]
-handlers = ["tls", "http"]
-port = 443
+[[vm]]
+  size = "shared-cpu-1x"
+  memory = 1024
 
-[deploy]
-release_command = "n8n start"
+[processes]
+  app = "n8n start"
